@@ -2,6 +2,7 @@
 ngrok_auth.txt
 kakaoapikey.txt
 roadapikey.txt
+upload/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
