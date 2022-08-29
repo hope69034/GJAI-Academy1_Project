@@ -1,37 +1,60 @@
 {% extends "base.html" %}
-{% block title %}결과 화면{% endblock %}
+
+{% block title %}Result{% endblock %}
+
 {% block additional_head %}
     <style>
         td { text-align: center; }
     </style>
 {% endblock %}
+
 {% block subtitle %}
-    <strong>메뉴(결과 화면)</strong>
+    <strong>진단 결과입니다.</strong>
 {% endblock %}
+
 {% block content %}
     <table class="table table-borderless">
         <tr class="d-flex">
             <td class="col-2">이미지</td>
             <td class="col-8">
-                <!-- <img src="../static/img/독수리.jpg" class="d-block w-100" alt="입력한 사진"> -->
-                <!-- <img src="{{url_for('static', filename='img/독수리.jpg')}}" class="d-block w-100" alt="입력한 사진"> -->     
-                <img src="{{url_for('static', filename='upload/'+fname)}}" class="d-block w-100" alt="입력한 사진">                         
+                <img src="{{url_for('static', filename='upload/upload/'+'upload.jpg', q=mtime)}}" 
+                     class="d-block w-100" alt="입력한 사진">                         
             </td>
             <td class="col-2"></td>
         </tr class="d-flex">
         <tr class="d-flex">
-            <td class="col-2 mt-1 mb-1">레이블</td>
+            <td class="col-2 mt-1 mb-1">결과</td>
             <td class="col-8 mt-1 mb-1" style="background-color: beige;">
-                <strong>{{result}}</strong>                             
+                <strong>{{final}}</strong> 
+                  
+                <table class="table table-sm">
+                    {% for key, value in result.items() %}
+                        <tr>
+                            <td>{{key}}</td>
+                            <td>{{value}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <strong>{{final2}}</strong> 
+                                        
             </td>
             <td class="col-2"></td>
         </tr class="d-flex">
         <tr class="d-flex">
             <td class="col-2"></td>
             <td class="col-8">
-                <button class="btn btn-primary" onclick="location.href='/menu'">재실행</button>
+                <button class="btn btn-primary" onclick="location.href='/menu'">back</button>
+                
+                {% if final != '정상입니다.' %}
+                <button  class="btn btn-primary" onclick="location.href='/menu_res_inf?m1p={{m1p}}&m2p={{m2p}}&m3p={{m3p}}&m4p={{m4p}}&m5p={{m5p}}&m6p={{m6p}}'">solution</button>
+                {% endif %}
+            
             </td>
+            
             <td class="col-2"></td>
         </tr>
     </table>
 {% endblock %}
+
+
+ 

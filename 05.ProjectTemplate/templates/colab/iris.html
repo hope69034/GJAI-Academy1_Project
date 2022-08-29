@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}아이리스 분류{% endblock %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block subtitle %}
+    <strong>아이리스(입력 화면)</strong>
+{% endblock %}
+{% block content %}
+    <form action="/iris" method="POST">
+        <table class="table table-borderless">
+            <tr>
+                <td>Sepal Length</td>
+                <td><input class="form-control" type="text" name="sl"></td>
+            </tr>
+            <tr>
+                <td>Sepal Width</td>
+                <td><input class="form-control" type="text" name="sw"></td>
+            </tr>
+            <tr>
+                <td>Petal Length</td>
+                <td><input class="form-control" type="text" name="pl"></td>
+            </tr>
+            <tr>
+                <td>Petal Width</td>
+                <td><input class="form-control" type="text" name="pw"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-primary mr-2">실행</button>
+                    <button type="reset" class="btn btn-secondary">취소</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
