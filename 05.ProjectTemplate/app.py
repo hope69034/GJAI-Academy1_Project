@@ -24,13 +24,12 @@ def menu():
                                         # static_folder/upload 가 경로 파일네임 : fname 유저가 업로드한 파일의 이름 
         f_image.save(filename) #파일세이브
         
-        return render_template('menu_spinner.html', menu=menu , filename=filename )
+        return render_template('menu_spinner.html', menu=menu ,  filename=filename )
         #  fname=newname  ,  mtime=mtime, 
         
 @app.route('/menu_res', methods=['POST'])
 def menu_res():
     menu = {'home':0, 'menu':1}
-    print('============================= menu_res() ==================================')
 #########################################################################
 ## model.test code
 # test 이미지파일 전처리, 텐서화
@@ -43,7 +42,7 @@ def menu_res():
     testset = torchvision.datasets.ImageFolder(root = '/content/drive/MyDrive/project/static/upload' ,
                         transform = transforms_test)
 # DataLoader를 통해 네트워크에 올리기 
-    testloader = DataLoader(testset, batch_size=1, shuffle=False, num_workers=2)
+    testloader = DataLoader(testset, batch_size=2, shuffle=False, num_workers=0)
    # if __name__ == '__main__':
     with torch.no_grad(): # 평가할 땐  gradient를 backpropagation 하지 않기 때문에 no grad로 gradient 계산을 막아서 연산 속도를 높인다
         for data, target in tqdm(testloader):                                   
@@ -98,7 +97,7 @@ def menu_res():
     result = {'미세각질':m1p, '피지과다':m2p,'모낭사이홍반':m3p,'모낭홍반농포':m4p,'비듬':m5p,'탈모':m6p} # result=result
     final2 = '0:양호, 1:경증, 2:중등도, 3:중증' 
 
-    #filename = request.args['filename']
+    filename = request.args['filename']  #html에서 넘겨준 파일네임을 리퀘스트로 불러오기
 
     mtime = int(os.stat(filename).st_mtime) # 업로드한 시간값불러오기 > 큐변경 > 화면갱신 4
     return render_template('menu_res.html',  final2=final2,final=final, menu=menu, result=result, 
