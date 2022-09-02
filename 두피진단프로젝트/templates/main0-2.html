@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화면</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            margin: 0 auto;
+            padding: 0 auto;
+        }
+        .main_div{
+           background-color: black;
+            width: 100%;
+            height: 100%;
+            background: no-repeat url("/static/img/장조림.jpg");
+            margin: 0 auto;
+            background-size: cover;
+            opacity: 0%;
+        }
+   
+    </style>
+  </head>
+  <body>
+    <div class="main_div" id="main">
+        <img class="" src="../html과제/장조림.jpg" alt="">
+        <div id="page2" >
+            <h1 class="h_1">두피검사</h1>
+            <ul>
+                <li class="il"> <span onmouseover="this.style.cursor='pointer'"  class="in " id="tt">검사하기</span> </li>
+                <li class="li"> <span onmouseover="this.style.cursor='pointer'"  class="in " id="ck">두피 관리법</span> </li>
+                <li class="li"> <span onmouseover="this.style.cursor='pointer'"  class="in " id="re">제품 추천</a> </li>
+            </ul>
+        </div>
+        <div class="team">
+            <a href="team" >Team StarDust</a>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            console.log('문서 준비완료')
+            $('.main_div').fadeTo('fast',0.2)
+            $('.main_div').fadeTo('fast',0.4)
+            $('.main_div').fadeTo('fast',0.9)
+            $('.main_div').fadeTo('fast',1)
+           
+        })
+        $('#tt').click(function(){
+            console.log('page 클릭 완료')
+            // 여기서 fade out 
+            $('#main').fadeTo('slow',1)
+            $('#main').fadeTo('slow',0.7)
+            $('#main').fadeTo('fast',0.3)
+            $('#main').fadeTo('fast',0)
+
+            setTimeout(function(){
+                $(location).attr('href','test') 
+            },2000)
+
+        })
+        $('#ck').click(function(){
+            console.log('page 클릭 완료')
+            // 여기서 fade out 
+            $('#main').fadeTo('slow',1)
+            $('#main').fadeTo('slow',0.7)
+            $('#main').fadeTo('fast',0.3)
+            $('#main').fadeTo('fast',0)
+
+            setTimeout(function(){
+                $(location).attr('href','api') 
+            },2000)
+
+        })
+        $('#re').click(function(){
+            console.log('page 클릭 완료')
+            // 여기서 fade out 
+            $('#main').fadeTo('slow',1)
+            $('#main').fadeTo('slow',0.7)
+            $('#main').fadeTo('fast',0.3)
+            $('#main').fadeTo('fast',0)
+
+            setTimeout(function(){
+                $(location).attr('href','shampoo') 
+            },2000)
+
+        })
+
+    </script>
+  </body>
+</html>

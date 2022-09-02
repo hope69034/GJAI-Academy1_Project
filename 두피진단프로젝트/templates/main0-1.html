@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/', q=2) }}"> -->
+
+    <link rel="stylesheet" href="/static/css/index.css" />
+
+    <!-- jQUery CDN 삽입  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #textBox{
+            opacity: 0%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- <a href="main0-2.html" id="a1"> -->
+
+        <div id="page1" >
+
+            <div id="textBox">
+            <h1> 탈모 나는 없을거라고</h1>
+              <h1>생각하십니까</h1>
+            
+              <h4>Click </h4>
+        
+           
+              
+         </div>
+         
+        </div>
+
+    <!-- </a> -->
+
+
+    <script>
+
+
+
+        $(document).ready(function(){
+            console.log('문서 준비 완료')
+            
+            $('#textBox').fadeTo('slow',0.2)
+            $('#textBox').fadeTo('fast',0.4)
+            $('#textBox').fadeTo('fast',0.9)
+            
+
+            $('#page1').click(function(){
+                console.log('page 클릭 완료')
+                // 여기서 fade out 
+                $('#textBox').fadeTo('slow',1)
+                $('#textBox').fadeTo('slow',0.7)
+                $('#textBox').fadeTo('slow',0.3)
+                $('#textBox').fadeTo('slow',0)
+
+                setTimeout(function(){
+                    $(location).attr('href','main') 
+                },3000)
+
+            })
+
+        });
+
+        //document.getElementbyID('a1').addEventListener('click',()=>{
+        //    $('#page1').fadeIn()
+        //    fadeout
+        //})
+    </script>
+
+</body>
+
+</html>
